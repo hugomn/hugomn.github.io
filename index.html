@@ -1,9 +1,117 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
 
-{% if page.url == "/" %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/assets/images/favicon.png">
+
+    <title>Home | Hugo Nogueira</title>
+
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <link href="/assets/css/screen.css" rel="stylesheet">
+
+    <link href="/assets/css/main.css" rel="stylesheet">
+
+</head>
+
+ 
+
+<body class="layout-default">
+
+
+    <!-- Begin Menu Navigation
+================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+        <div class="container pr-0">
+
+            <!-- Begin Logo -->
+            <!-- <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="Hugo Nogueira">
+            </a> -->
+            <!-- End Logo -->
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarMediumish">
+
+                <!-- Begin Menu -->
+
+                <ul class="navbar-nav ml-auto">
+
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a target="_blank" class="nav-link" href="http://call.hugomagalhaes.com">Schedule a call</a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a target="_blank" class="nav-link" href="https://www.facebook.com/wowthemesnet/">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a target="_blank" class="nav-link" href="https://twitter.com/wowthemesnet">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li> -->
+
+                </ul>
+
+                <!-- End Menu -->
+
+            </div>
+
+        </div>
+    </nav>
+    <!-- End Navigation
+================================================== -->
+
+    <div class="site-content">
+        <div class="container">
+
+            <!-- Site Title
+================================================== -->
+            <!-- <div class="mainheading">
+                <h1 class="sitetitle">Hugo Nogueira</h1>
+                <p class="lead">
+                    Lead front-end engineer and agile manager. React, React Native and Node.js enthusiast. Principal front-end and Lead engineer @ <a href='http://infinitec.solutions'>Infinitec Solutions</a>. Berlin, Germany
+                </p>
+            </div> -->
+
+
+
+            <!-- Content
+================================================== -->
+            <div class="main-content">
+                
 
 <!-- Site Title
 ================================================== -->
@@ -12,9 +120,9 @@ title: Home
             <span class="avatar-image circle"><img src="/assets/images/avatar.jpg" alt="Hugo Magalhães"></span>
     </div>
     <div class="descriptionContainer">
-        <h1 class="sitetitle">{{ site.title }}</h1>
+        <h1 class="sitetitle">Hugo Nogueira</h1>
         <p class="lead">
-            {{ site.description }}
+            Lead front-end engineer and agile manager. React, React Native and Node.js enthusiast. Principal front-end and Lead engineer @ <a href='http://infinitec.solutions'>Infinitec Solutions</a>. Berlin, Germany
         </p>
         <p>
             <div class="socialIconsContainer">
@@ -59,20 +167,114 @@ title: Home
     </div>
     <div class="row">
         
-    {% for post in site.posts %}
+    
 
-        {% if post.featured == true %}
+        
 
-            {% include featuredbox.html %}
+            <!-- begin post -->
 
-        {% endif %}
+<div class="col-md-6 mb-30px">
+    <div class="listfeaturedtag h-100">
+        <div class="row h-100">
+            <div class="col-lg-5 col-md-12 pr-lg-0">
+                <div class="h-100">
+                    <div class="wrapthumbnail">
+                        <a href="/blog/var-let-or-const">
+                            <span class="thumbnail d-block" style="background-image:url(/assets/images/posts/20180806.gif);">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="h-100 card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title"><a class="text-dark" href="/blog/var-let-or-const">var, let or const?</a></h2>
+                            <h4 class="card-text">One (or two) of the most important features that came with ES2015 (ES6) was  the addition of let and const which can be used for...</h4>
+                        </div>
+                        <div class="card-footer b-0 bg-white mt-auto">
+                            <div class="wrapfooter">
+                                
+                                <span class="meta-footer-thumb">
+                                <img class="author-thumb" src="https://www.gravatar.com/avatar/86d69b8300d46636769c0bf2c133796d?s=250&d=mm&r=x" alt="Hugo Nogueira">
+                                </span>
+                                <span class="author-meta">
+                                <span class="post-name"><a href="https://www.hugomagalhaes.com">Hugo Nogueira</a></span><br/>
+                                
+                                <span class="post-date">06 Aug 2018</span>
+                                </span>
+                                <span class="post-read-more"><a href="/blog/var-let-or-const" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
 
-    {% endfor %}
+        
+
+    
+
+        
+
+            <!-- begin post -->
+
+<div class="col-md-6 mb-30px">
+    <div class="listfeaturedtag h-100">
+        <div class="row h-100">
+            <div class="col-lg-5 col-md-12 pr-lg-0">
+                <div class="h-100">
+                    <div class="wrapthumbnail">
+                        <a href="/blog/my-personal-mission-statement">
+                            <span class="thumbnail d-block" style="background-image:url(/assets/images/16.jpg);">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+                <div class="h-100 card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title"><a class="text-dark" href="/blog/my-personal-mission-statement">My personal mission statement</a></h2>
+                            <h4 class="card-text">After reading the book “The 7 Habits of Highly Successful People”, written by S. Covey, I understood the real importance of having a clear vision...</h4>
+                        </div>
+                        <div class="card-footer b-0 bg-white mt-auto">
+                            <div class="wrapfooter">
+                                
+                                <span class="meta-footer-thumb">
+                                <img class="author-thumb" src="https://www.gravatar.com/avatar/86d69b8300d46636769c0bf2c133796d?s=250&d=mm&r=x" alt="Hugo Nogueira">
+                                </span>
+                                <span class="author-meta">
+                                <span class="post-name"><a href="https://www.hugomagalhaes.com">Hugo Nogueira</a></span><br/>
+                                
+                                <span class="post-date">01 Aug 2018</span>
+                                </span>
+                                <span class="post-read-more"><a href="/blog/my-personal-mission-statement" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
+
+        
+
+    
         
     </div>
 </section>
 
-{% endif %}
+
 
 <!-- Posts Index
 ================================================== -->
@@ -86,11 +288,77 @@ title: Home
     
     <div class="row listrecent">
 
-        {% for post in paginator.posts %}
+        
 
-               {% include postbox.html %}          
+               <!-- begin post -->
 
-        {% endfor %}
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/blog/var-let-or-const">
+                 <img class="img-fluid" src="/assets/images/posts/20180806.gif" alt="var, let or const?"> 
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="/blog/var-let-or-const">var, let or const?</a></h2>
+            <h4 class="card-text">One (or two) of the most important features that came with ES2015 (ES6) was  the addition of let and const which can be used for variable declaration. But, the first...</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                <img class="author-thumb" src="https://www.gravatar.com/avatar/86d69b8300d46636769c0bf2c133796d?s=250&d=mm&r=x" alt="Hugo Nogueira">
+                </span>                
+                <span class="author-meta">
+                <span class="post-name"><a href="https://www.hugomagalhaes.com">Hugo Nogueira</a></span><br/>
+                
+                <span class="post-date">06 Aug 2018</span>
+                </span>
+                <span class="post-read-more"><a href="/blog/var-let-or-const" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->          
+
+        
+
+               <!-- begin post -->
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="/blog/my-personal-mission-statement">
+                 <img class="img-fluid" src="/assets/images/16.jpg" alt="My personal mission statement"> 
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="/blog/my-personal-mission-statement">My personal mission statement</a></h2>
+            <h4 class="card-text">After reading the book “The 7 Habits of Highly Successful People”, written by S. Covey, I understood the real importance of having a clear vision of my personal mission, as...</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                <span class="meta-footer-thumb">
+                <img class="author-thumb" src="https://www.gravatar.com/avatar/86d69b8300d46636769c0bf2c133796d?s=250&d=mm&r=x" alt="Hugo Nogueira">
+                </span>                
+                <span class="author-meta">
+                <span class="post-name"><a href="https://www.hugomagalhaes.com">Hugo Nogueira</a></span><br/>
+                
+                <span class="post-date">01 Aug 2018</span>
+                </span>
+                <span class="post-read-more"><a href="/blog/my-personal-mission-statement" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->          
+
+        
         
     </div>
     
@@ -101,7 +369,91 @@ title: Home
 <div class="bottompagination">
 <div class="pointerup"><i class="fa fa-caret-up"></i></div>
 <span class="navigation" role="navigation">
-    {% include pagination.html %}
+    
 </span>
 </div>
 
+
+            </div>
+
+            <!-- Bottom Alert Bar
+================================================== -->
+            <!-- <div class="alertbar">
+                <div class="container text-center">
+                    <span>
+                        <img src="/assets/images/logo.png" alt="Hugo Nogueira"> &nbsp; Never miss a
+                        <b>story</b> from us, subscribe to our newsletter</span>
+                    <form action="" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank"
+                        novalidate>
+                        <div class="mc-field-group">
+                            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+                            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+
+        </div>
+        <!-- /.container>
+    
+<!-- Categories Jumbotron
+================================================== -->
+        <div class="jumbotron fortags">
+            <div class="row">
+                <div class="col-md-4 align-self-center text-center">
+                    <h2 class="d-md-block d-none">Explore →</h2>
+                </div>
+                <div class="col-md-8 align-self-center text-center">
+                      
+                    <a href="/category/personal">Personal (1)</a>
+                    
+                    <a href="/category/javascript">Javascript (1)</a>
+                      
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Begin Footer
+================================================== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                        Copyright © 2018 Hugo Nogueira
+                    </div>
+                    <div class="col-md-6 col-sm-6 text-center text-lg-right">
+                        <a href="http://www.hugomagalhaes.com">hugomagalhaes.com</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer
+================================================== -->
+
+
+    </div>
+    <!-- /.site-content>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="/assets/js/mediumish.js"></script>
+
+    <script id="dsq-count-scr" src="//hugomagalhes.disqus.com/count.js"></script>
+</body>
+
+</html>
