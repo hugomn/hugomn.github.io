@@ -4,7 +4,7 @@
     <title>Hugo Nogueira</title>
     <description>Lead front-end engineer and agile manager. React, and Node.js enthusiast. &lt;br/&gt; Principal front-end and Lead engineer @ &lt;a href='http://infinitec.solutions'&gt;Infinitec Solutions&lt;/a&gt;. Berlin, Germany</description>
     <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="/pt/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>Sat, 18 Aug 2018 00:07:45 +0200</pubDate>
     <lastBuildDate>Sat, 18 Aug 2018 00:07:45 +0200</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
@@ -96,7 +96,7 @@
       </item>
     
       <item>
-        <title>My personal mission statement</title>
+        <title>Declaração de missão pessoal</title>
         <description>&lt;p&gt;After reading the book “The 7 Habits of Highly Successful People”, written by S. Covey, I understood the real importance of having a clear vision of my personal mission, as a way to always seek to understand if my daily attitudes and achievements are in agreement with my long-term goals. And it serves as a guide so that all my steps, even if the most daily, are in accordance with what I want in the future. Here is my personal mission statement:&lt;/p&gt;
 
 &lt;p&gt;I will always seek to balance my career and my personal life since both are vitally important to my happiness. Some moments will require a greater dedication, both at work and between family and friends, and I will try to be clear to know how to strike the balance between these moments.&lt;/p&gt;
