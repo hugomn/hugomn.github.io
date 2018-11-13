@@ -5,9 +5,193 @@
     <description>Senior software engineer and agile manager. React, and Node.js enthusiast. &lt;br/&gt; Engineering Lead @ &lt;a href='https://www.bcgdv.com'&gt;BCG Digital Ventures&lt;/a&gt;. Berlin, Germany</description>
     <link>/</link>
     <atom:link href="/pt/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 11 Nov 2018 18:35:58 +0100</pubDate>
-    <lastBuildDate>Sun, 11 Nov 2018 18:35:58 +0100</lastBuildDate>
+    <pubDate>Tue, 13 Nov 2018 14:21:26 +0100</pubDate>
+    <lastBuildDate>Tue, 13 Nov 2018 14:21:26 +0100</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Como desenvolver componentes reutilizáveis utilizando Babel and RollupJS</title>
+        <description>&lt;p&gt;No dia 10 de Outubro, tive o prazer de falar sobre componentes reutilizáveis utilizando a biblioteca Rollup.js, no meetup &lt;a href=&quot;https://www.meetup.com/React-Open-Source/&quot;&gt;React Open Source&lt;/a&gt;, em Berlin. Tentei mostrar, de forma simples, o contexto da criação do conceito de módulos em JavaScript e fiz uma sessão de live coding, mostrando como criar e publicar componentes reutilizáveis. Assista ao vídeo completo no final desse post.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-eu-precisaria-expor-meus-componentes&quot;&gt;Por que eu precisaria expor meus componentes?&lt;/h2&gt;
+&lt;p&gt;Existem diversos motivos e exemplos de situações em que é interessante criarmos componentes reutilizáveis. É importante listarmos alguns deles:&lt;/p&gt;
+
+&lt;h3 id=&quot;1-compartilhamento-de-componentes-entre-diferentes-aplicações&quot;&gt;1. Compartilhamento de componentes entre diferentes aplicações&lt;/h3&gt;
+&lt;p&gt;Esse é o caso mais óbvio e mais comum. A ideia essencial da arquitetura de componentes é criar partes reutilizáveis de código. Um exemplo clássico de reutilização é a criação de componentes de UI que podem ser reutilizados em diferentes aplicações.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-compartilhamento-de-configuração&quot;&gt;2. Compartilhamento de configuração&lt;/h3&gt;
+&lt;p&gt;Um outro caso bastante comum de reutilização acontece quando precisamos compartilhar configurações entre projetos. Uma forma simples de fazer isso é compilar as configurações como componentes.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-criação-de-micro-services-para-aplicações-front-end&quot;&gt;3. Criação de micro-services para aplicações front-end&lt;/h3&gt;
+&lt;p&gt;A arquitetura de micro-serviços é uma técnica de desenvolvimento e deploy que utiliza serviços com responsabilidades bem definidas e totalmente desacordados, facilitando a manutenção e evolução do sistema. Essa abordagem tem se tornado comum em aplicações front-end e a utilização de componentes reutilizáveis é uma forma de desenvolver micro-services.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-gerenciar-encapsulamento-e-dependência-em-javascript&quot;&gt;Como gerenciar encapsulamento e dependência em JavaScript?&lt;/h2&gt;
+&lt;p&gt;Um princípio básico para a criação de componentes independentes e reutilizáveis é que os mesmos sejam encapsulados e que haja um bom gerenciamento de dependências. Para resolver esse problema, foi introduzido o conceito de módulos JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Inicialmente, eram utilizadas funções imediatamente executadas (IIFE) e o padrão “Revelling module” para a criação de componentes, como no exemplo a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/0324b8515dddff5c4c30b18d581a1021.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;commonjs&quot;&gt;CommonJS&lt;/h3&gt;
+
+&lt;p&gt;Em Janeiro de 2009, porém, Kevin Danger iniciou o projeto de criação do CommonJS para que houvesse uma melhor padronização de componentes JavaScript, principalmente para &lt;em&gt;scripts server-side&lt;/em&gt;. O projeto foi inicialmente chamado de &lt;strong&gt;ServerJS&lt;/strong&gt;. O projeto iniciou os conceitos de &lt;strong&gt;require&lt;/strong&gt;, &lt;strong&gt;exports&lt;/strong&gt; and &lt;strong&gt;module&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Porém em Maio de 2013, Isaac Z. Schlueter, autor do npm, gerenciador de pacotes do Node.js, disse que CommonJS estava sendo descontinuado pelo Node.js, e que seria evitado pelos mantenedores do projeto. Segue abaixo um exemplo de módulo utilizando CommonJS:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/dd0ee6ab22228ad409311eccc91d14c4.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/4e386b62684967a4cd691a3e2d408a45.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;asynchronous-module-definition-amd&quot;&gt;Asynchronous Module Definition (AMD)&lt;/h3&gt;
+
+&lt;p&gt;Como a implementação de CommonJS não era compatível com os browsers, foi criada a definição de módulos assíncronos, ou AMD. A AMD foi criada para ser usada nos browsers para melhorar o tempo de startup das aplicações, e tais módulos poderiam ser objetos, funções, construtores, strings, JSON, etc. Abaixo um exemplo de módulo AMD:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/bd04b870151a2c1c61ca696ebfcff6d0.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;módulos-es2015&quot;&gt;Módulos ES2015&lt;/h3&gt;
+
+&lt;p&gt;Os módulos ES2015 foram implementados na recente implementação ECMAScript 2015 do Javascript, e é compatível com as abordagens &lt;strong&gt;assíncrona&lt;/strong&gt; e &lt;strong&gt;síncrona&lt;/strong&gt;. E tem uma grande vantagem: &lt;strong&gt;é JavaScript nativo!&lt;/strong&gt;. Porém não está completamente disponível em todos os browsers e para isso precisa de um &lt;strong&gt;transpilador&lt;/strong&gt; como &lt;strong&gt;Babel&lt;/strong&gt; por exemplo para a execução em browsers não suportados.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/8cf95a5619aac64bebd220abe21acf00.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;https://gist.github.com/hugomn/c7970afb33ff7a1af5b476a89a4a844b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Agora que vimos uma rápida introdução aos módulos em JavaScript, vamos entender como &lt;strong&gt;Rollup.js&lt;/strong&gt; pode nos ajudar a compilar nossos componentes em componentes reutilizáveis.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-é-rollupjs&quot;&gt;O que é Rollup.js?&lt;/h2&gt;
+&lt;p&gt;Rollup é um &lt;em&gt;bundler&lt;/em&gt; de módulos para JavaScript que compila partes pequenas de código em algo maior e mais complexo, como uma biblioteca ou uma aplicação.&lt;/p&gt;
+
+&lt;p&gt;Você deve estar se perguntando? &lt;strong&gt;Por que não Webpack?&lt;/strong&gt; Webpack foi criado basicamente como um &lt;em&gt;bundler&lt;/em&gt; para web applications, principalmente para resolver os problemas de &lt;em&gt;code-splitting&lt;/em&gt; e gerenciamento de assets. Recentemente ambas biblioteca cresceram muito e são capazes de resolver a maioria dos problemas, tanto para bibliotecas, quando para web applications. Porém, o senso comum entre os &lt;em&gt;bundlers&lt;/em&gt; tem sido o seguinte:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para aplicações completas, utilize &lt;strong&gt;Webpack&lt;/strong&gt;. Para bibliotecas, utilize &lt;strong&gt;Rollup.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;talk-is-cheap-show-me-the-code&quot;&gt;Talk is cheap, show me the code&lt;/h2&gt;
+&lt;p&gt;Vamos finalmente ao nosso exemplo. Nesse exemplo, irei utilizar um componente extremamente básico em &lt;strong&gt;React&lt;/strong&gt;. Criaremos um &lt;strong&gt;Header&lt;/strong&gt;, e o compilaremos para que seja reutilizado em outros projetos!&lt;/p&gt;
+
+&lt;h4 id=&quot;1-primeiro-instalamos-rollupjs-globalmente&quot;&gt;1. Primeiro, instalamos Rollup.js globalmente&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install --global rollup&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-agora-criamos-nosso-componente-de-cabeçalho-básico&quot;&gt;2. Agora, criamos nosso componente de cabeçalho básico&lt;/h4&gt;
+&lt;p&gt;Nosso componente terá apenas uma tag &lt;strong&gt;&amp;lt;h1&amp;gt;&lt;/strong&gt;, e será publicado no npm para que possa ser utilizado por outros projetos:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// src/header.js&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/h1&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;3-precisamos-exportar-nosso-componente-de-cabeçalho&quot;&gt;3. Precisamos exportar nosso componente de Cabeçalho&lt;/h4&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// src/main.js&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./header.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Como pretendemos utilizar módulos ES6, precisaremos instalar e configurar o &lt;strong&gt;Babel&lt;/strong&gt; para que nosso componente seja corretamente compilado.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-instalando-e-configurando-o-babel&quot;&gt;4. Instalando e configurando o Babel&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; @babel/core @babel/cli @babel/present-env @babel/present-react
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// babel.config.js&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;presets&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;@babel/env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@babel/preset-react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;presets&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora que já instalamos e configuramos o Babel, precisamos instalar o plugin para o &lt;strong&gt;Rollup.js&lt;/strong&gt; que fará a integração com &lt;strong&gt;Babel&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;h4 id=&quot;5-instalando-o-plugin-do-babel-para-o-rollupjs&quot;&gt;5. Instalando o plugin do Babel para o Rollup.js&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; rollup-plugin-babel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// rollup.config.js&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;babel&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rollup-plugin-babel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;src/main.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;reusableComponents&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dist/main.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;iife&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;external&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;babel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;node_modules/**&quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Muita atenção na linha &lt;strong&gt;external: [“react”]&lt;/strong&gt;. Sem essa configuração, o Rollup irá compilar todo o código-fonte do React junto com seu componente.&lt;/p&gt;
+
+&lt;p&gt;Agora já podemos compilar nosso componente:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rollup &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Após compilado, seu biblioteca estará compilada e disponível em &lt;strong&gt;dist/main.js&lt;/strong&gt;. Como etapa final, precisamos apenas publicar seu componente no repositório do npm, para que possa ser utilizado por outros projetos.&lt;/p&gt;
+
+&lt;h4 id=&quot;6-publicando-sua-biblioteca-no-ppm&quot;&gt;6. Publicando sua biblioteca no ppm&lt;/h4&gt;
+
+&lt;p&gt;Antes de publicar sua biblioteca, você precisa ser logar no npm, e provavelmente precisará configurar as chaves SSH de sua conta.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm login
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm publish &lt;span class=&quot;nt&quot;&gt;--access&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;public
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pronto! Após publicado, sua biblioteca e seus componentes já estarão disponíveis para serem usados via &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt; em seus outros projetos. 🎉&lt;/p&gt;
+
+&lt;h4 id=&quot;7-dica-bônus-usando-npm-link-para-configurar-seu-ambiente-de-desenvolvimento&quot;&gt;7. &lt;strong&gt;Dica bônus:&lt;/strong&gt; Usando &lt;code class=&quot;highlighter-rouge&quot;&gt;npm link&lt;/code&gt; para configurar seu ambiente de desenvolvimento&lt;/h4&gt;
+
+&lt;p&gt;Para evitar que você tenha que publicar e atualizar seu componente toda vez que fizer alguma alteração, existe uma forma simples de referenciar seu componente localmente em seus projetos.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Em sua biblioteca, crie um link virtual utilizando o commando `npm link`.
+2. No projeto que utiliza sua biblioteca, execute o mesmo comando, agora referenciando a biblioteca, por exemplo: `npm link @hugomn/reusable-components`.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Pronto! Agora você tem um ambiente completo e simples para desenvolver seus componentes reutilizáveis. Espero que gostem e, por favor, enviem qualquer dúvida ou feedback que tiverem. 🤘🏻&lt;/p&gt;
+
+&lt;h2 id=&quot;vídeo-completo-no-youtube&quot;&gt;Vídeo completo no YouTube&lt;/h2&gt;
+&lt;p&gt;Abaixo estão o vídeo completo e os slides da apresentação que fiz (em inglês) para o meetup React Open Source, no dia 10 de outubro de 2018, em Berlim.&lt;/p&gt;
+
+&lt;div class=&quot;container&quot; style=&quot;position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 40px&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/Dve_bYaAVZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;div style=&quot;left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.1987%;&quot;&gt;&lt;iframe src=&quot;//speakerdeck.com/player/95ae0fbc24be49d88f1a7a0b333e984f&quot; style=&quot;border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;&quot; allowfullscreen=&quot;&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 26 Sep 2018 00:00:00 +0200</pubDate>
+        <link>/blog/how-to-develop-reusable-components-with-babel-and-rollupjs</link>
+        <guid isPermaLink="true">/blog/how-to-develop-reusable-components-with-babel-and-rollupjs</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>var, let or const?</title>
