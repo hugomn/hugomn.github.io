@@ -1,30 +1,30 @@
 Arguments: 
-  /Users/hugomn/.nvm/versions/node/v8.5.0/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js publish
+  /usr/local/Cellar/node/10.12.0/bin/node /usr/local/Cellar/yarn/1.10.1/libexec/bin/yarn.js publish
 
 PATH: 
-  /Users/hugomn/.nvm/versions/node/v8.5.0/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/nogueira_hugo/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
-  1.7.0
+  1.10.1
 
 Node version: 
-  8.5.0
+  10.12.0
 
 Platform: 
   darwin x64
 
 Trace: 
   Error: canceled
-      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:131036:13)
-      at emitNone (events.js:105:13)
-      at Interface.emit (events.js:207:7)
-      at Interface._ttyWrite (readline.js:770:16)
-      at ReadStream.onkeypress (readline.js:158:10)
-      at emitTwo (events.js:125:13)
-      at ReadStream.emit (events.js:213:7)
-      at emitKeys (internal/readline.js:420:14)
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:116426:13)
+      at Interface.emit (events.js:182:13)
+      at Interface._ttyWrite (readline.js:783:16)
+      at ReadStream.onkeypress (readline.js:168:10)
+      at ReadStream.emit (events.js:182:13)
+      at emitKeys (internal/readline.js:424:14)
       at emitKeys.next (<anonymous>)
-      at ReadStream.onData (readline.js:1007:36)
+      at ReadStream.onData (readline.js:1022:36)
+      at ReadStream.emit (events.js:182:13)
+      at addChunk (_stream_readable.js:283:12)
 
 npm manifest: 
   {
@@ -35,7 +35,7 @@ npm manifest:
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "bundle exec jekyll serve",
-      "deploy": "bundle exec jekyll build && node scripts/deploy.js"
+      "deploy": "JEKYLL_ENV=production bundle exec jekyll build && node scripts/deploy.js"
     },
     "repository": {
       "type": "git",
